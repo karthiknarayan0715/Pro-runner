@@ -15,6 +15,7 @@ ctx.fillRect(0, 0, 1500, 100);
 ctx.fillStyle = 'black';
 ctx.fillRect(0, 500, 1500, 100);
 var obsFrame = 150
+const maxScore = 1
 const scoreText = document.querySelector("#scoreText")
 function stopGame()
 {
@@ -148,6 +149,8 @@ function Update()
         pos = Math.floor(Math.random()*2)
         addObstacle(pos)
     }
+    if(score%200==0)
+        obstacleSpeed--;
     if(frameNumber%10 == 0)
         score++;
     scoreText.innerHTML = "Score: "+ score 
