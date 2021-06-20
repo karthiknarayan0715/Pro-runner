@@ -6,7 +6,7 @@ var frameNumber = 0
 var gravity = 0.1
 var obstacleSpeed = -5
 const obstacleObj = []
-var score = 0
+var score = 1
 frameIntreval = setInterval(Update  , frameRate)
 //roof
 ctx.fillStyle = 'black';
