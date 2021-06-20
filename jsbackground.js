@@ -3,7 +3,7 @@ const ctx = gameArea.getContext('2d')
 const frameRate = 20;
 const player = new genPlayer(60,300,"greenyellow",60,60)
 var frameNumber = 0
-var gravity = 0.1
+var gravity = 0.5
 var obstacleSpeed = -5
 const obstacleObj = []
 var score = 1
@@ -17,6 +17,7 @@ ctx.fillRect(0, 500, 1500, 100);
 var obsFrame = 150
 const maxScore = 1
 const scoreText = document.querySelector("#scoreText")
+const gameOverDiv = document.querySelector("#gameOver")
 function stopGame()
 {
     clearInterval(frameIntreval)
@@ -25,6 +26,12 @@ function stopGame()
 function endGame()
 {
     ctx.clearRect(0, 0, gameArea.width, gameArea.height);
+    ctx.fillStyle = 'darkorchid'
+    ctx.font = '40px Arial'
+    ctx.textAlign = "center";
+    ctx.fillText("You lost!", gameArea.width/2, gameArea.height/2);
+    ctx.fillText("Score : "+score, gameArea.width/2, (gameArea.height/2)+50)
+    gameOverDiv.innerHTML = "<input id = 'restart' type = 'button' onclick = 'location.reload()' value = 'Restart'>"
 }
 //player
 function genPlayer(x, y, color, width, height)
@@ -66,7 +73,7 @@ function genPlayer(x, y, color, width, height)
     }
     this.isGrounded = function()
     {
-        if((this.y < 500 - this.width && gravity == 0.1) || (this.y > 100  && gravity == -0.1))
+        if((this.y < 500 - this.width && gravity > 0) || (this.y > 100  && gravity < 0))
             return false
         return true
     }
