@@ -149,8 +149,16 @@ function Update()
         pos = Math.floor(Math.random()*2)
         addObstacle(pos)
     }
-    if(score%200==0)
-        obstacleSpeed--;
+    if(score<100)
+        obsFrame = 150
+    else if(score < 200 && score > 100)
+        obsFrame = 125
+    else if(score < 400 && score > 200)
+        obsFrame = 100
+    else if(score < 1000 && score > 400)
+        obsFrame = 75
+    else
+        obsFrame = 50
     if(frameNumber%10 == 0)
         score++;
     scoreText.innerHTML = "Score: "+ score 
