@@ -37,3 +37,16 @@ body
     width: 200px;
     height: 50px;
 }
+#restart
+{
+    text-align: center;
+    height: 40px;
+    width: 200px;
+    position: relative;
+    top: 500px;
+    left: 675px;
+    color: darkorchid;
+    background-color: gold;
+    border-color: goldenrod;    
+    z-index: 100;
+}
