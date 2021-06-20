@@ -1,0 +1,39 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+body
+{
+    background-color: gold;
+}
+#gamename
+{
+    size: 24px;
+    text-shadow: 2px;
+    color: darkorchid;
+    text-align: center;
+}
+#gameArea
+{
+    width: 1500px;
+    height: 600px;
+    background-color: goldenrod;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 20px;
+}
+#scoreText
+{
+    text-align: center;
+    vertical-align: middle;
+    color: blueviolet;
+    font-size: 34px;
+    padding-top: 14px;
+    background-color: blanchedalmond;
+    position: relative;
+    top: 10px;
+    left: 1300px;
+    width: 200px;
+    height: 50px;
+}
