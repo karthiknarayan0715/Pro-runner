@@ -1,4 +1,4 @@
-const gameArea = document.getElementById("gameArea")
+st gameArea = document.getElementById("gameArea")
 const ctx = gameArea.getContext('2d')
 const frameRate = 20;
 const player = new genPlayer(60,300,"greenyellow",60,60)
@@ -7,6 +7,7 @@ var gravity = 0.5
 var obstacleSpeed = -5
 const obstacleObj = []
 var score = 1
+var highScore = localStorage.getItem("highScore")
 frameIntreval = setInterval(Update  , frameRate)
 //roof
 ctx.fillStyle = 'black';
@@ -25,12 +26,24 @@ function stopGame()
 }
 function endGame()
 {
+    if(highScore == null)
+    {    
+        localStorage.setItem("highScore",score);
+        highScore = score;
+    }
+    else
+        if(score>highScore)
+        {
+            localStorage.setItem("highScore",score);
+            highScore = score;
+        }
     ctx.clearRect(0, 0, gameArea.width, gameArea.height);
     ctx.fillStyle = 'darkorchid'
     ctx.font = '40px Arial'
     ctx.textAlign = "center";
     ctx.fillText("You lost!", gameArea.width/2, gameArea.height/2);
     ctx.fillText("Score : "+score, gameArea.width/2, (gameArea.height/2)+50)
+    ctx.fillText("High Score : "+highScore, gameArea.width/2, (gameArea.height/2)+100)
     gameOverDiv.innerHTML = "<input id = 'restart' type = 'button' onclick = 'location.reload()' value = 'Restart'>"
 }
 //player
