@@ -1,4 +1,4 @@
-st gameArea = document.getElementById("gameArea")
+const gameArea = document.getElementById("gameArea")
 const ctx = gameArea.getContext('2d')
 const frameRate = 20;
 const player = new genPlayer(60,300,"greenyellow",60,60)
