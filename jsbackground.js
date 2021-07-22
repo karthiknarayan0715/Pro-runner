@@ -296,7 +296,7 @@ function addObstacle(pos, obsType)
 function addPowerUp()
 {
     var tempPower
-    tempPower = new powerUp(gameAreaWidth, gameAreaHeight/2, 10, "red", 2 * Math.PI)
+    tempPower = new powerUp(gameAreaWidth, gameAreaHeight/2, 10, "blue", 2 * Math.PI)
     powerUps.push(tempPower)
 }
 function gengravity()
