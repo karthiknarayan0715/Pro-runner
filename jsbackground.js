@@ -35,6 +35,8 @@ const powerUps = []
 const invincibilityTime = 10000
 var isInvincible = false
 
+var nextObsFrame = obsFrame
+
 function stopGame()
 {
     clearInterval(frameIntreval) // Clearing the intreval
@@ -347,11 +349,15 @@ function Update()
     gengravity()
     if(frameNumber%obsFrame == 0)
     {
+        nextObsFrame = obsFrame + (Math.floor(Math.random()*20))
+    }
+    if(frameNumber%nextObsFrame == 0)
+    {
         pos = Math.floor(Math.random()*2)
         obsType = Math.floor(Math.random()*2)
         addObstacle(pos, obsType)
     }
-    if(frameNumber%(3/2*obsFrame) == 0)
+    if(frameNumber%(11/2*nextObsFrame) == 0)
     {
         addPowerUp()
     }
